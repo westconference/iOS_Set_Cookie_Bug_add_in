@@ -50,6 +50,11 @@ module.exports = async (env, options) => {
         filename: "dialog.html",
         template: "./src/dialog/dialog.html",
         chunks: ["polyfill"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "return.html",
+        template: "./src/dialog/return.html",
+        chunks: ["polyfill"]
       })
     ],
     devServer: {
@@ -57,7 +62,9 @@ module.exports = async (env, options) => {
         "Access-Control-Allow-Origin": "*"
       },
       https: (options.https !== undefined) ? options.https : await devCerts.getHttpsServerOptions(),
-      port: process.env.npm_package_config_dev_server_port || 3000
+      port: process.env.npm_package_config_dev_server_port || 3000,
+      host: '127.0.0.1',//your ip address,
+      disableHostCheck: true
     }
   };
 

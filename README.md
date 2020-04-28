@@ -4,6 +4,8 @@
 
 This project contains an example Microsoft Web Add-in implementation derived from the Outlook quickstart example [here](https://docs.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart?tabs=yeomangenerator). This example is to illustrate a bug in Outlook add-ins where on opening a dialog and navigating to an external page that passes backa  Set-Cookie header, on iOS that Set-Cookie header is not respected and no cookie is stored. This is not a problem on desktop clients e.g. Windows Outlook Desktop Client.
 
+This repository shoudl be with https://github.com/westconference/-iOS_Set_Cookie_Bug_external_service.
+
 ## Reproduce Issue
 
 ### Start Add-in Service

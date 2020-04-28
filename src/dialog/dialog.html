@@ -9,14 +9,22 @@
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
     <script>
-      Office.onReady(() => {
-        window.location.href = 'https://localhost:4000/landing';
-      });
+      Office.onReady(() => {});
+      function redirect() {
+        var destination = document.getElementById("destinationInput").value;
+        var returnValue = document.getElementById("returnInput").value;
+        if (!returnValue) {
+          returnValue = 'https://localhost:3000/return.html';
+        }
+        window.location.href = destination ? destination : 'https://localhost:4000/landing?returnUrl=' + returnValue;
+      }
     </script>
 </head>
 
 <body>
-
+  Destination: <input type="text" id="destinationInput">
+  Return: <input type="text" id="returnInput">
+  <button onclick="redirect()">Redirect</button>
 </body>
 
 </html>
