@@ -14,9 +14,10 @@
         var destination = document.getElementById("destinationInput").value;
         var returnValue = document.getElementById("returnInput").value;
         if (!returnValue) {
-          returnValue = 'https://localhost:3000/return.html';
+          returnValue = 'https://' + window.location.host + '/return.html';
         }
-        window.location.href = destination ? destination : 'https://localhost:4000/landing?returnUrl=' + returnValue;
+        window.location.href = destination ? destination + '/landing?returnUrl=' + returnValue :
+          'https://' + window.location.hostname + '/landing?returnUrl=' + returnValue;
       }
     </script>
 </head>

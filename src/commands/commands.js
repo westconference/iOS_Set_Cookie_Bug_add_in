@@ -10,7 +10,7 @@ Office.onReady(() => {
 const DIALOG_INVALID_PAGE = 12002;
 const DIALOG_CLOSED_ERROR_CODE = 12006;
 
-const DIALOG_URL = window.location.hostname + '/dialog.html';
+const DIALOG_URL = 'https://' + window.location.host + '/dialog.html';
 
 /**
  * Shows a notification when the add-in command is executed.
@@ -40,6 +40,7 @@ function getGlobal() {
 
 function openDialog (openUrl) {
   return new Promise((resolve, reject) => {
+    console.log('Attempting to open dialog at: ' + openUrl);
     Office.context.ui.displayDialogAsync(openUrl, { width: 40, height: 30, promptBeforeOpen: false }, function (asyncResult) {
       if (asyncResult.status === Office.AsyncResultStatus.Failed) {
         reject('Failure opening dialog');
